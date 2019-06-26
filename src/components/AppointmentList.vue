@@ -12,7 +12,7 @@
         <div class="w-100">
           <div class="d-flex justify-content-between">
             <span class="h4 text-primary">{{item.petName}}</span>
-            <span class="float-right">{{item.aptDate}}</span>
+            <span class="float-right">{{formattedDate(item.aptDate)}}</span>
           </div>
           <div class="owner-name">
             <span class="font-weight-bold text-primary mr-1">Owner:</span>
@@ -27,11 +27,17 @@
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import moment from "moment";
 export default {
   name: "AppointmentList",
   props: ["appointments"],
   components: {
     FontAwesomeIcon
+  },
+  methods: {
+    formattedDate: function(date) {
+      return moment(new Date(date)).format("MM-DD-YY, h:mm a");
+    }
   }
 };
 </script>
