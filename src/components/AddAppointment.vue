@@ -97,6 +97,9 @@ export default {
         aptDate: this.formData.aptDate + " " + this.formData.aptTime,
         aptNotes: this.formData.aptNotes
       };
+      this.$emit("add", this.formData);
+      this.formData = [];
+      this.hidepanel = true;
     }
   }
 };

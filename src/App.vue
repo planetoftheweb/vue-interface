@@ -1,7 +1,7 @@
 <template>
   <div id="main-app" class="container">
     <div class="row justify-content-center">
-      <add-appointment/>
+      <add-appointment @add="addItem"/>
       <appointment-list :appointments="appointments" @remove="removeItem" @edit="editItem"/>
     </div>
   </div>
@@ -36,6 +36,11 @@ export default {
     );
   },
   methods: {
+    addItem: function(apt) {
+      apt.aptId = this.aptIndex;
+      this.aptIndex++;
+      this.appointments.push(apt);
+    },
     removeItem: function(apt) {
       this.appointments = _.without(this.appointments, apt);
     },
