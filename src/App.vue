@@ -2,6 +2,7 @@
   <div id="main-app" class="container">
     <div class="row justify-content-center">
       <add-appointment @add="addItem"/>
+      <search-appointments/>
       <appointment-list :appointments="appointments" @remove="removeItem" @edit="editItem"/>
     </div>
   </div>
@@ -9,6 +10,7 @@
 
 <script>
 import AddAppointment from "./components/AddAppointment";
+import SearchAppointments from "./components/SearchAppointments";
 import AppointmentList from "./components/AppointmentList";
 import _ from "lodash";
 import axios from "axios";
@@ -23,6 +25,7 @@ export default {
   },
   components: {
     AppointmentList,
+    SearchAppointments,
     AddAppointment
   },
   mounted() {
