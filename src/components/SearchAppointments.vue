@@ -25,29 +25,29 @@
         <div class="dropdown-menu dropdown-menu-right">
           <a href="#" class="dropdown-item d-flex justify-content-between" id="petName">
             Pet Name
-            <font-awesome-icon icon="check"/>
+            <font-awesome-icon icon="check" v-if="myKey==='petName'"/>
           </a>
 
           <a class="dropdown-item d-flex justify-content-between" href="#" id="aptDate">
             Date
-            <font-awesome-icon icon="check"/>
+            <font-awesome-icon icon="check" v-if="myKey==='aptDate'"/>
           </a>
 
           <a href="#" class="dropdown-item d-flex justify-content-between" id="ownerName">
             Owner
-            <font-awesome-icon icon="check"/>
+            <font-awesome-icon icon="check" v-if="myKey==='petOwner'"/>
           </a>
 
           <div class="dropdown-divider" role="separator"></div>
 
           <a class="dropdown-item d-flex justify-content-between" href="#" id="asc">
             Asc
-            <font-awesome-icon icon="check"/>
+            <font-awesome-icon icon="check" v-if="myDir==='asc'"/>
           </a>
 
           <a class="dropdown-item d-flex justify-content-between" href="#" id="desc">
             Desc
-            <font-awesome-icon icon="check"/>
+            <font-awesome-icon icon="check" v-if="myDir==='desc'"/>
           </a>
         </div>
       </div>
@@ -69,6 +69,7 @@ export default {
       this.$emit("searchRecords", this.searchTerm);
     }
   },
+  props: ["myKey", "myDir"],
   components: {
     FontAwesomeIcon
   }
